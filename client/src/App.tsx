@@ -81,7 +81,7 @@ export default function App() {
 
             <div className="project-grid">
               <article className="project-card reveal">
-                <div className="project-card-image placeholder-image" aria-hidden>
+                <div className="project-card-image placeholder-image" aria-hidden="true">
                   <span>01</span>
                 </div>
                 <div className="project-card-body">
@@ -100,7 +100,7 @@ export default function App() {
               </article>
 
               <article className="project-card reveal">
-                <div className="project-card-image placeholder-image" aria-hidden>
+                <div className="project-card-image placeholder-image" aria-hidden="true">
                   <span>02</span>
                 </div>
                 <div className="project-card-body">
@@ -117,7 +117,7 @@ export default function App() {
               </article>
 
               <article className="project-card reveal">
-                <div className="project-card-image placeholder-image" aria-hidden>
+                <div className="project-card-image placeholder-image" aria-hidden="true">
                   <span>03</span>
                 </div>
                 <div className="project-card-body">
