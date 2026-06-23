@@ -138,8 +138,8 @@ export default function App() {
 
         <section id="about" className="section section-alt">
           <div className="container about-grid reveal">
-            <div className="about-photo placeholder-image" aria-hidden>
-              <span>Photo</span>
+            <div className="about-photo">
+              <img src="/assets/photo.jpg" alt="Photo of Martin Kojo Quayson" />
             </div>
             <div className="about-content">
               <header className="section-header section-header-left">
