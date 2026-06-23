@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portfolio of an aspiring full-stack developer — projects, skills, and contact."
+    />
+    <title>Martin Kojo Quayson | Full-Stack Developer</title>
+
+    <!-- Google Fonts: Inter is clean, readable, and widely used in modern UIs -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Runs before paint so the page doesn't flash the wrong theme on reload -->
+    <script>
+      (function () {
+        const stored = localStorage.getItem("theme");
+        if (stored === "light" || stored === "dark") {
+          document.documentElement.setAttribute("data-theme", stored);
+        } else {
+          const prefersDark = window.matchMedia(
+            "(prefers-color-scheme: dark)"
+          ).matches;
+          document.documentElement.setAttribute(
+            "data-theme",
+            prefersDark ? "dark" : "light"
+          );
+        }
+      })();
+    </script>
+
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Skip link: helps keyboard users jump straight to content -->
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- Header stays visible while scrolling so navigation is always reachable -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="#home">MKQ</a>
+
+        <!-- Hamburger: only visible on small screens where nav links don't fit -->
+        <button
+          type="button"
+          class="menu-toggle"
+          id="menu-toggle"
+          aria-expanded="false"
+          aria-controls="site-nav"
+          aria-label="Open menu"
+        >
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+        </button>
+
+        <nav class="site-nav" id="site-nav" aria-label="Primary">
+          <ul class="nav-list">
+            <li><a class="nav-link" href="#home">Home</a></li>
+            <li><a class="nav-link" href="#projects">Projects</a></li>
+            <li><a class="nav-link" href="#about">About</a></li>
+            <li><a class="nav-link" href="#skills">Skills</a></li>
+            <li><a class="nav-link" href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <button
+          type="button"
+          class="theme-toggle"
+          id="theme-toggle"
+          aria-label="Switch to light mode"
+        >
+          <svg
+            class="theme-icon theme-icon-sun"
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+          </svg>
+          <svg
+            class="theme-icon theme-icon-moon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- Hero: first impression — who you are and what you want in one glance -->
+      <section id="home" class="hero section">
+        <div class="container hero-inner reveal">
+          <p class="hero-eyebrow">Full-Stack Developer</p>
+          <h1 class="hero-title">
+            Hi, I'm <span class="text-accent">Martin Kojo Quayson</span>.
+            <br />
+            I build things for the web.
+          </h1>
+          <p class="hero-text">
+            I'm learning to craft fast, accessible websites and apps — from
+            polished frontends to reliable backends. This portfolio is project
+            #1: built from scratch, one step at a time.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">View my work</a>
+            <a class="btn btn-secondary" href="#contact">Get in touch</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects: proof of ability — we'll fill these with real work over time -->
+      <section id="projects" class="section">
+        <div class="container">
+          <header class="section-header reveal">
+            <p class="section-eyebrow">Portfolio</p>
+            <h2>Featured projects</h2>
+            <p class="section-intro">
+              Each card will become a mini case study: what I built, why, and
+              what I learned.
+            </p>
+          </header>
+
+          <div class="project-grid">
+            <article class="project-card reveal">
+              <div class="project-card-image placeholder-image" aria-hidden="true">
+                <span>01</span>
+              </div>
+              <div class="project-card-body">
+                <h3>This portfolio site</h3>
+                <p>
+                  A responsive personal site built with semantic HTML and modern
+                  CSS — my foundation project as I grow toward full-stack
+                  development.
+                </p>
+                <ul class="tag-list">
+                  <li>HTML</li>
+                  <li>CSS</li>
+                  <li>Git</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="project-card reveal">
+              <div class="project-card-image placeholder-image" aria-hidden="true">
+                <span>02</span>
+              </div>
+              <div class="project-card-body">
+                <h3>Coming soon</h3>
+                <p>
+                  Your next project goes here — maybe a todo app, weather app,
+                  or API-powered dashboard.
+                </p>
+                <ul class="tag-list">
+                  <li>JavaScript</li>
+                  <li>API</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="project-card reveal">
+              <div class="project-card-image placeholder-image" aria-hidden="true">
+                <span>03</span>
+              </div>
+              <div class="project-card-body">
+                <h3>Coming soon</h3>
+                <p>
+                  A full-stack project with a backend and database will live
+                  here once you're ready for your first full-stack build.
+                </p>
+                <ul class="tag-list">
+                  <li>Node.js</li>
+                  <li>Database</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- About: personality + story recruiters and collaborators remember -->
+      <section id="about" class="section section-alt">
+        <div class="container about-grid reveal">
+          <div class="about-photo placeholder-image" aria-hidden="true">
+            <span>Photo</span>
+          </div>
+          <div class="about-content">
+            <header class="section-header section-header-left">
+              <p class="section-eyebrow">About me</p>
+              <h2>Curious, persistent, and building every day</h2>
+            </header>
+            <p>
+              I'm a tech enthusiast on the path to becoming a full-stack
+              developer. I enjoy understanding how the whole system works —
+              from pixels in the browser to data on the server.
+            </p>
+            <p>
+              Right now I'm focused on strong fundamentals: clean HTML, thoughtful
+              CSS, and JavaScript basics. Each project in this portfolio is
+              deliberate practice toward that long-term goal.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills: scannable list of tools you're learning or using -->
+      <section id="skills" class="section">
+        <div class="container">
+          <header class="section-header reveal">
+            <p class="section-eyebrow">Toolkit</p>
+            <h2>Skills I'm building</h2>
+          </header>
+
+          <div class="skills-grid">
+            <div class="skill-group reveal">
+              <h3>Frontend</h3>
+              <ul class="tag-list tag-list-large">
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>JavaScript</li>
+                <li>Responsive design</li>
+              </ul>
+            </div>
+            <div class="skill-group reveal">
+              <h3>Backend (learning)</h3>
+              <ul class="tag-list tag-list-large">
+                <li>Node.js</li>
+                <li>REST APIs</li>
+                <li>Databases</li>
+              </ul>
+            </div>
+            <div class="skill-group reveal">
+              <h3>Tools</h3>
+              <ul class="tag-list tag-list-large">
+                <li>Git & GitHub</li>
+                <li>VS Code / Cursor</li>
+                <li>Chrome DevTools</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact: make it effortless for someone to reach you -->
+      <section id="contact" class="section section-alt">
+        <div class="container contact-inner reveal">
+          <header class="section-header reveal">
+            <p class="section-eyebrow">Contact</p>
+            <h2>Let's connect</h2>
+            <p class="section-intro">
+              Open to feedback, collaboration, and junior opportunities.
+            </p>
+          </header>
+
+          <div class="contact-links">
+            <a class="contact-link" href="mailto:mquayson49@gmail.com">mquayson49@gmail.com</a>
+            <a
+              class="contact-link"
+              href="https://github.com/mharthin"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub
+            </a>
+            <a
+              class="contact-link"
+              href="https://linkedin.com/in/martquayson49"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>
+          &copy; <span id="year"></span> Martin Kojo Quayson. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
