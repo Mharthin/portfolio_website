@@ -139,7 +139,14 @@ export default function App() {
         <section id="about" className="section section-alt">
           <div className="container about-grid reveal">
             <div className="about-photo">
-              <img src="/assets/photo.jpg" alt="Photo of Martin Kojo Quayson" />
+              <img
+                src="/assets/photo.jpg"
+                alt="Photo of Martin Kojo Quayson"
+                onError={(e) => {
+                  const t = e.target as HTMLImageElement
+                  if (t.src.includes('.jpg')) t.src = '/assets/photo.jpeg'
+                }}
+              />
             </div>
             <div className="about-content">
               <header className="section-header section-header-left">
