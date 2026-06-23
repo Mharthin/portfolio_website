@@ -26,8 +26,20 @@ function setTheme(theme) {
   updateToggleLabel(theme);
 }
 
+// Initialize theme on load: use stored preference or system preference
+function initTheme() {
+  const stored = localStorage.getItem("theme");
+  if (stored === "light" || stored === "dark") {
+    setTheme(stored);
+    return;
+  }
+
+  const prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+  setTheme(prefersLight ? "light" : "dark");
+}
 if (themeToggle) {
   updateToggleLabel(getTheme());
+  initTheme();
 
   themeToggle.addEventListener("click", () => {
     const nextTheme = getTheme() === "dark" ? "light" : "dark";
@@ -66,7 +78,22 @@ if (menuToggle && siteHeader) {
   });
 
   navLinks.forEach((link) => {
-    link.addEventListener("click", closeMenu);
+    link.addEventListener("click", (e) => {
+      // Smooth-scroll for same-page anchors
+      const href = link.getAttribute("href");
+      if (href && href.startsWith("#") && href.length > 1) {
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+          // move focus for accessibility
+          target.setAttribute("tabindex", "-1");
+          target.focus({ preventScroll: true });
+        }
+      }
+
+      closeMenu();
+    });
   });
 
   document.addEventListener("keydown", (event) => {
@@ -134,4 +161,52 @@ if (revealElements.length && !prefersReducedMotion) {
   revealElements.forEach((element) => revealObserver.observe(element));
 } else {
   revealElements.forEach((element) => element.classList.add("is-visible"));
+}
+
+// Contact form validation + mock submission
+const contactForm =
+  document.getElementById("contact-form") ||
+  document.querySelector("form[data-validate]");
+
+if (contactForm) {
+  let statusEl = contactForm.querySelector(".form-status");
+  if (!statusEl) {
+    statusEl = document.createElement("div");
+    statusEl.className = "form-status";
+    statusEl.id = "form-status";
+    statusEl.setAttribute("aria-live", "polite");
+    contactForm.appendChild(statusEl);
+  }
+
+  // Show validation on submit and mock a send
+  contactForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    // Use constraint API for native validation feedback
+    if (!contactForm.checkValidity()) {
+      contactForm.reportValidity();
+      return;
+    }
+
+    const submit = contactForm.querySelector('[type="submit"]');
+    if (submit) submit.disabled = true;
+    statusEl.textContent = "Sending...";
+
+    // Mock network request
+    setTimeout(() => {
+      statusEl.textContent = "Message sent — thanks!";
+      contactForm.reset();
+      if (submit) submit.disabled = false;
+    }, 800);
+  });
+
+  // Optional: live validation removal for inputs
+  const inputs = contactForm.querySelectorAll("input, textarea, select");
+  inputs.forEach((input) => {
+    input.addEventListener("input", () => {
+      if (input.checkValidity()) {
+        input.removeAttribute("aria-invalid");
+      }
+    });
+  });
 }
