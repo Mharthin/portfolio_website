@@ -175,6 +175,9 @@ export default function App() {
                   <li>CSS3</li>
                   <li>JavaScript</li>
                   <li>Responsive design</li>
+                  <li>React</li>
+                  <li>TypeScript</li>
+                  <li>Vite</li>
                 </ul>
               </div>
               <div className="skill-group reveal">
