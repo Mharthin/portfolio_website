@@ -4,3 +4,46 @@
 }
 html,body,#root{height:100%;margin:0}
 body{background:var(--bg);color:var(--text)}
+/* Mobile About Section Fix */
+@media (max-width: 768px) {
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about-photo {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .about-photo img {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    display: block;
+    object-fit: cover;
+  }
+
+  .about-content {
+    position: static;
+    width: 100%;
+    z-index: auto;
+  }
+
+  .about-content .section-header,
+  .section-header-left {
+    margin-top: 0;
+  }
+
+  .about-content h2 {
+    font-size: clamp(2rem, 8vw, 3rem);
+    line-height: 1.15;
+  }
+
+  .about-content p {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+}
